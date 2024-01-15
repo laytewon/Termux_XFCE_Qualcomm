@@ -13,7 +13,7 @@ curl -sL https://raw.githubusercontent.com/bengkelgawai/Termux_XFCE/main/setup.s
 curl -sL https://raw.githubusercontent.com/bengkelgawai/Termux_XFCE/zink_mesa/setup.sh -o setup.sh && chmod +x setup.sh && ./setup.sh
 ```
 
-- dri3 : !! Only for Qualcomm Snapdragon !! Using DRI3 patch for turnip in proot. Has the besat performance, xfce should be installed in proot
+- dri3 : !! Only for Qualcomm Snapdragon !! Using DRI3 patch for turnip in proot. Has the best performance, xfce should be installed in proot
 ```
 curl -sL https://raw.githubusercontent.com/bengkelgawai/Termux_XFCE/dri3/setup.sh -o setup.sh && chmod +x setup.sh && ./setup.sh
 ```
