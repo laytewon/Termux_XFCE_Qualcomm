@@ -18,14 +18,7 @@ curl -sL https://raw.githubusercontent.com/bengkelgawai/Termux_XFCE/zink_mesa/se
 curl -sL https://raw.githubusercontent.com/bengkelgawai/Termux_XFCE/dri3/setup.sh -o setup.sh && chmod +x setup.sh && ./setup.sh
 ```
 
-# Install
-
-To install run this command in termux
-
-```
-curl -sL https://raw.githubusercontent.com/bengkelgawai/Termux_XFCE/main/setup.sh -o setup.sh && chmod +x setup.sh && ./setup.sh
-```
-&nbsp;
+# Below information is copied from original repository. Please check it if you want Termux XFCE that will work in any device.
 
 
 Join the Discord for any questions, help, suggestions, etc. [https://discord.gg/pNMVrZu5dm](https://discord.gg/pNMVrZu5dm)  
