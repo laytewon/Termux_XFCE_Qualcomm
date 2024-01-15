@@ -3,7 +3,7 @@
 Fork from https://github.com/phoenixbyrd/Termux_XFCE to test to test GPU renderer performance in Qualcomm Snapdragon devices. 
 
 You will see 3 branches :
-- main : virglrenderer-android uses Android GL/ES. It should work on most Android devices.
+- main : No change from original repo, virglrenderer-android uses Android GL/ES. It should work on most Android devices.
 ```
 curl -sL https://raw.githubusercontent.com/bengkelgawai/Termux_XFCE/main/setup.sh -o setup.sh && chmod +x setup.sh && ./setup.sh
 ```
