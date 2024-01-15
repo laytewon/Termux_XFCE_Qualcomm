@@ -1,17 +1,29 @@
 # Termux_XFCE
 
-Sets up a termux XFCE desktop and a Debian proot install. This setup uses Termux-X11, the termux-x11 server will be installed and you will be prompted to allow termux to install the Android APK.
+Fork from https://github.com/phoenixbyrd/Termux_XFCE to test to test GPU renderer performance in Qualcomm Snapdragon devices. 
 
-You only need to pick your username and follow the prompts. This will take roughly 4GB of storage space. Please note, this can be a lengthy process. Keep in mind that as you install applications, they will consume more storage space. 
+You will see 3 branches :
+- main : virglrenderer-android uses Android GL/ES. It should work on most Android devices.
+```
+curl -sL https://raw.githubusercontent.com/bengkelgawai/Termux_XFCE/main/setup.sh -o setup.sh && chmod +x setup.sh && ./setup.sh
+```
 
-Please read the whole Readme for more information about this setup.  
+- zink_mesa : !! Only for Qualcomm Snapdragon !! Zink is the OpenGL on Vulkan translation layer, perfomance is better than virglrenderer-android.
+```
+curl -sL https://raw.githubusercontent.com/bengkelgawai/Termux_XFCE/zink_mesa/setup.sh -o setup.sh && chmod +x setup.sh && ./setup.sh
+```
+
+- dri3 : !! Only for Qualcomm Snapdragon !! Using DRI3 patch for turnip in proot. Has the besat performance, xfce should be installed in proot
+```
+curl -sL https://raw.githubusercontent.com/bengkelgawai/Termux_XFCE/dri3/setup.sh -o setup.sh && chmod +x setup.sh && ./setup.sh
+```
 
 # Install
 
 To install run this command in termux
 
 ```
-curl -sL https://raw.githubusercontent.com/phoenixbyrd/Termux_XFCE/main/setup.sh -o setup.sh && chmod +x setup.sh && ./setup.sh
+curl -sL https://raw.githubusercontent.com/bengkelgawai/Termux_XFCE/main/setup.sh -o setup.sh && chmod +x setup.sh && ./setup.sh
 ```
 &nbsp;
 
