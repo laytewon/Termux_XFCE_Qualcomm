@@ -39,7 +39,7 @@ setup_proot() {
 proot-distro install debian
 proot-distro login debian --shared-tmp -- env DISPLAY=:1.0 apt update
 proot-distro login debian --shared-tmp -- env DISPLAY=:1.0 apt upgrade -y
-proot-distro login debian --shared-tmp -- env DISPLAY=:1.0 apt install sudo wget nala jq flameshot conky-all libvulkan1 -y
+proot-distro login debian --shared-tmp -- env DISPLAY=:1.0 apt install sudo wget nala jq flameshot conky-all libvulkan1 glmark2 -y
 
 #Install DRI3 patched driver
 wget https://github.com/bengkelgawai/Termux_XFCE/raw/main/mesa-vulkan-kgsl_23.3.0-ubuntu_arm64.deb
@@ -77,7 +77,7 @@ proot-distro login debian --shared-tmp -- env DISPLAY=:1.0 cp /usr/share/zoneinf
 
 setup_xfce() {
 #Install xfce4 desktop and additional packages
-pkg install git neofetch virglrenderer-android mesa-zink virglrenderer-mesa-zink vulkan-loader-android papirus-icon-theme xfce4 xfce4-goodies pavucontrol-qt exa bat jq nala wmctrl firefox netcat-openbsd -y
+pkg install git neofetch mesa-zink virglrenderer-mesa-zink vulkan-loader-android glmark2 papirus-icon-theme xfce4 xfce4-goodies pavucontrol-qt exa bat jq nala wmctrl firefox netcat-openbsd -y
 
 #Create .bashrc
 cp $HOME/../usr/var/lib/proot-distro/installed-rootfs/debian/etc/skel/.bashrc $HOME/.bashrc
@@ -233,13 +233,23 @@ mv $HOME/Desktop/kill_termux_x11.desktop $HOME/../usr/share/applications
 cat <<'EOF' > start
 #!/bin/bash
 
-MESA_NO_ERROR=1 MESA_GL_VERSION_OVERRIDE=4.3COMPAT MESA_GLES_VERSION_OVERRIDE=3.2 virgl_test_server_android --angle-gl & > /dev/null 2>&1
+if [ $1 != "dri3" ]
+then
+  MESA_LOADER_DRIVER_OVERRIDE=zink GALLIUM_DRIVER=zink ZINK_DESCRIPTORS=lazy virgl_test_server --use-egl-surfaceless &
+fi
+
 sleep 1
 XDG_RUNTIME_DIR=${TMPDIR} termux-x11 :1.0 &
 sleep 1
 am start --user 0 -n com.termux.x11/com.termux.x11.MainActivity > /dev/null 2>&1
 sleep 1
-env DISPLAY=:1.0 GALLIUM_DRIVER=virpipe dbus-launch --exit-with-session xfce4-session & > /dev/null 2>&1
+
+if [ $1 != "dri3" ]
+then
+  env DISPLAY=:1.0 GALLIUM_DRIVER=zink dbus-launch --exit-with-session xfce4-session & > /dev/null 2>&1
+else
+  env DISPLAY=:1.0 dbus-launch --exit-with-session proot-distro debian --user $username --shared-tmp MESA_LOADER_DRIVER_OVERRIDE=zink TU_DEBUG=noconform xfce4-session & > /dev/null 2>&1
+fi
 
 sleep 5
 process_id=$(ps -aux | grep '[x]fce4-screensaver' | awk '{print $2}')
