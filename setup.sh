@@ -41,6 +41,12 @@ proot-distro login debian --shared-tmp -- env DISPLAY=:1.0 apt update
 proot-distro login debian --shared-tmp -- env DISPLAY=:1.0 apt upgrade -y
 proot-distro login debian --shared-tmp -- env DISPLAY=:1.0 apt install sudo wget nala jq flameshot conky-all -y
 
+#Install DRI3 patched driver
+wget https://github.com/bengkelgawai/Termux_XFCE/raw/main/mesa-vulkan-kgsl_23.3.0-ubuntu_arm64.deb
+mv mesa-vulkan-kgsl_23.3.0-ubuntu_arm64.deb $HOME/../usr/var/lib/proot-distro/installed-rootfs/debian/root/
+proot-distro login debian --shared-tmp -- env DISPLAY=:1.0 dpkg -i mesa-vulkan-kgsl_23.3.0-ubuntu_arm64.deb
+proot-distro login debian --shared-tmp -- env DISPLAY=:1.0 rm mesa-vulkan-kgsl_23.3.0-ubuntu_arm64.deb
+
 #Create user
 proot-distro login debian --shared-tmp -- env DISPLAY=:1.0 groupadd storage
 proot-distro login debian --shared-tmp -- env DISPLAY=:1.0 groupadd wheel
@@ -71,7 +77,7 @@ proot-distro login debian --shared-tmp -- env DISPLAY=:1.0 cp /usr/share/zoneinf
 
 setup_xfce() {
 #Install xfce4 desktop and additional packages
-pkg install git neofetch virglrenderer-android papirus-icon-theme xfce4 xfce4-goodies pavucontrol-qt exa bat jq nala wmctrl firefox netcat-openbsd -y
+pkg install git neofetch virglrenderer-android mesa_zink virglrenderer-mesa-zink vulkan-loader-android papirus-icon-theme xfce4 xfce4-goodies pavucontrol-qt exa bat jq nala wmctrl firefox netcat-openbsd -y
 
 #Create .bashrc
 cp $HOME/../usr/var/lib/proot-distro/installed-rootfs/debian/etc/skel/.bashrc $HOME/.bashrc
