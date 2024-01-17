@@ -372,7 +372,7 @@ rm config.tar.gz
 chmod u+rwx .config/autostart/conky.desktop
 chmod u+rwx .config/autostart/org.flameshot.Flameshot.desktop
 
-sed -i 's/phoenixbyrd/$username/g' .config/autostart/org.flameshot.Flameshot.desktop
+sed -i "s/phoenixbyrd/$username/g" .config/autostart/org.flameshot.Flameshot.desktop
 
 }
 
