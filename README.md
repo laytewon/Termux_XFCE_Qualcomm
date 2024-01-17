@@ -8,16 +8,20 @@ Install with :
 ```
 curl -sL https://raw.githubusercontent.com/bengkelgawai/Termux_XFCE/main/setup.sh -o setup.sh && chmod +x setup.sh && ./setup.sh
 ```
-Execute from termux with :
+
+# Start xfce4 with zink or dri3 (Default is zink)
+There are currently 2 options that you can test :
+
+## Start xfce4 in termux with zink
+This is similar with original reposiroty from phoenixbyrd, but will utilize zink instead of virgl which should work better for Adreno
 ```
 start
 ```
-This will start xfce4 in termux, similar with original reposiroty from phoenixbyrd, but will utilize zink instead of virgl
-
+## Start xfce4 in proot with using dri3 patched driver
+This should give better performance, but currently only possible for proot environemnt. APplication installed in termux will not visible here.
 ```
 start dri3
 ```
-This will start xfce4 in proot, using dri3 patched driver. This shoudl give better performance, but only in proot environemnt.
 
 # Below information is copied from original repository. Please check it if you want Termux XFCE that will work in any device.
 
