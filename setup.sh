@@ -233,6 +233,8 @@ mv $HOME/Desktop/kill_termux_x11.desktop $HOME/../usr/share/applications
 cat <<'EOF' > start
 #!/bin/bash
 
+varname=$(basename $HOME/../usr/var/lib/proot-distro/installed-rootfs/debian/home/*)
+
 if [[ $1 != "dri3" ]]
 then
   MESA_LOADER_DRIVER_OVERRIDE=zink GALLIUM_DRIVER=zink ZINK_DESCRIPTORS=lazy virgl_test_server --use-egl-surfaceless &
@@ -248,7 +250,7 @@ if [[ $1 != "dri3" ]]
 then
   env DISPLAY=:1.0 GALLIUM_DRIVER=zink dbus-launch --exit-with-session xfce4-session & > /dev/null 2>&1
 else
-  proot-distro debian --user $username --shared-tmp -- env DISPLAY=:1.0 MESA_LOADER_DRIVER_OVERRIDE=zink TU_DEBUG=noconform dbus-launch --exit-with-session xfce4-session & > /dev/null 2>&1
+  proot-distro login debian --user $varname --shared-tmp -- env DISPLAY=:1.0 MESA_LOADER_DRIVER_OVERRIDE=zink TU_DEBUG=noconform dbus-launch --exit-with-session xfce4-session & > /dev/null 2>&1
 fi
 
 sleep 5
