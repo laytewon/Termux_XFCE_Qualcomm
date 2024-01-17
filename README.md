@@ -9,14 +9,14 @@ Install with :
 curl -sL https://raw.githubusercontent.com/bengkelgawai/Termux_XFCE/main/setup.sh -o setup.sh && chmod +x setup.sh && ./setup.sh
 ```
 Execute from termux with :
-...
+```
 start
-...
+```
 This will start xfce4 in termux, similar with original reposiroty from phoenixbyrd, but will utilize zink instead of virgl
 
-...
+```
 start dri3
-...
+```
 This will start xfce4 in proot, using dri3 patched driver. This shoudl give better performance, but only in proot environemnt.
 
 # Below information is copied from original repository. Please check it if you want Termux XFCE that will work in any device.
