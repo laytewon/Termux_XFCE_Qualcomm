@@ -1,22 +1,23 @@
 # Termux_XFCE
 
-Fork from https://github.com/phoenixbyrd/Termux_XFCE to test to test GPU renderer performance in Qualcomm Snapdragon devices. 
+Fork from https://github.com/phoenixbyrd/Termux_XFCE to test to test GPU renderer performance in **Qualcomm Snapdragon** devices. You can also test it in other mobile APU, but I don't think it wil work properly.
 
-You will see 3 branches :
-- main : No change from original repo, virglrenderer-android uses Android GL/ES. It should work on most Android devices.
+Requirement is fresh debian proot-distro. 
+
+Install with :
 ```
 curl -sL https://raw.githubusercontent.com/bengkelgawai/Termux_XFCE/main/setup.sh -o setup.sh && chmod +x setup.sh && ./setup.sh
 ```
+Execute from termux with :
+...
+start
+...
+This will start xfce4 in termux, similar with original reposiroty from phoenixbyrd, but will utilize zink instead of virgl
 
-- zink_mesa : !! Only for Qualcomm Snapdragon !! Zink is the OpenGL on Vulkan translation layer, perfomance is better than virglrenderer-android.
-```
-curl -sL https://raw.githubusercontent.com/bengkelgawai/Termux_XFCE/zink_mesa/setup.sh -o setup.sh && chmod +x setup.sh && ./setup.sh
-```
-
-- dri3 : !! Only for Qualcomm Snapdragon !! Using DRI3 patch for turnip in proot. Has the best performance, xfce should be installed in proot
-```
-curl -sL https://raw.githubusercontent.com/bengkelgawai/Termux_XFCE/dri3/setup.sh -o setup.sh && chmod +x setup.sh && ./setup.sh
-```
+...
+start dri3
+...
+This will start xfce4 in proot, using dri3 patched driver. This shoudl give better performance, but only in proot environemnt.
 
 # Below information is copied from original repository. Please check it if you want Termux XFCE that will work in any device.
 
