@@ -6,7 +6,7 @@ Requirement is fresh debian proot-distro.
 
 Install with :
 ```
-curl -sL https://raw.githubusercontent.com/bengkelgawai/Termux_XFCE/main/setup.sh -o setup.sh && chmod +x setup.sh && ./setup.sh
+curl -sL https://raw.githubusercontent.com/bengkelgawai/Termux_XFCE_Qualcomm/main/setup.sh -o setup.sh && chmod +x setup.sh && ./setup.sh
 ```
 
 # Start xfce4 with zink or dri3 (Default is zink)
