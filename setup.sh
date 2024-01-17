@@ -248,7 +248,7 @@ if [[ $1 != "dri3" ]]
 then
   env DISPLAY=:1.0 GALLIUM_DRIVER=zink dbus-launch --exit-with-session xfce4-session & > /dev/null 2>&1
 else
-  env DISPLAY=:1.0 dbus-launch --exit-with-session proot-distro debian --user $username --shared-tmp -- MESA_LOADER_DRIVER_OVERRIDE=zink TU_DEBUG=noconform xfce4-session & > /dev/null 2>&1
+  proot-distro debian --user $username --shared-tmp -- env DISPLAY=:1.0 MESA_LOADER_DRIVER_OVERRIDE=zink TU_DEBUG=noconform dbus-launch --exit-with-session xfce4-session & > /dev/null 2>&1
 fi
 
 sleep 5
