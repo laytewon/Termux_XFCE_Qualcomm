@@ -14,10 +14,9 @@ curl -sL https://raw.githubusercontent.com/bengkelgawai/Termux_XFCE_Qualcomm/mai
 - Proot GPU renderer is using dri3 patched zink+turnip. This should give best performance, but still has a bug to be used to run full xfce4. You can test it from xfce by running GUI aplication (e.g. glmark) from proot.
 - Other small fixes.
 
-# Below information is copied from original repository. Please check it if you want Termux XFCE that will work in any device.
+# Below information is copied from original repository
+## Please check it if you want Termux XFCE that will work in Non-Qualcomm devices
 
-
-Join the Discord for any questions, help, suggestions, etc. [https://discord.gg/pNMVrZu5dm](https://discord.gg/pNMVrZu5dm)  
 
 &nbsp;
 
