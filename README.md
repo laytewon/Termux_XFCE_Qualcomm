@@ -1,27 +1,18 @@
 # Termux_XFCE
 
-Fork from https://github.com/phoenixbyrd/Termux_XFCE to test to test GPU renderer performance in **Qualcomm Snapdragon** devices. You can also test it in other mobile APU, but I don't think it wil work properly.
+Fork from https://github.com/phoenixbyrd/Termux_XFCE to optimize GPU renderer performance in **Qualcomm Snapdragon** devices. You can also test it in other mobile APU, but I don't think it wil work properly.
 
-Requirement is fresh debian proot-distro. 
+Requirement is fresh debian proot-distro, fresh termux installation is also preferred.
 
 Install with :
 ```
 curl -sL https://raw.githubusercontent.com/bengkelgawai/Termux_XFCE_Qualcomm/main/setup.sh -o setup.sh && chmod +x setup.sh && ./setup.sh
 ```
 
-# Start xfce4 with zink or dri3 (Default is zink)
-There are currently 2 options that you can test :
-
-## Start xfce4 in termux with zink
-This is similar with original reposiroty from phoenixbyrd, but will utilize zink instead of virgl which should work better for Adreno
-```
-start
-```
-## Start xfce4 in proot with using dri3 patched driver
-This should give better performance, but currently only possible for proot environemnt. APplication installed in termux will not visible here.
-```
-start dri3
-```
+# Differences with phoenixbyrd's version
+- Termux GPU renderer is using zink+turnip instead of virpipe, which gives better performance for Qualcomm devices.
+- Proot GPU renderer is using dri3 patched zink+turnip. This should give best performance, but still has a bug to be used to run full xfce4. You can test it from xfce by running GUI aplication (e.g. glmark) from proot.
+- Other small fixes.
 
 # Below information is copied from original repository. Please check it if you want Termux XFCE that will work in any device.
 
