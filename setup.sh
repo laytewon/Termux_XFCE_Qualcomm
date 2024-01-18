@@ -66,7 +66,7 @@ echo "export TU_DEBUG=noconform" >> $HOME/../usr/var/lib/proot-distro/installed-
 
 #Set proot aliases
 echo "
-alias virgl='GALLIUM_DRIVER=virpipe '
+alias virgl='GALLIUM_DRIVER=zink '
 alias ls='exa -lF --icons'
 alias cat='bat '
 alias apt='sudo nala '
