@@ -114,7 +114,7 @@ chmod +x $HOME/Desktop/firefox.desktop
 cat <<'EOF' > ../usr/bin/prun
 #!/bin/bash
 varname=$(basename $HOME/../usr/var/lib/proot-distro/installed-rootfs/debian/home/*)
-proot-distro login debian --user $varname --shared-tmp -- env DISPLAY=:1.0 $@
+proot-distro login debian --user $varname --shared-tmp -- env DISPLAY=:1.0 MESA_DRIVER_LOADER_OVERRIDE=zink TU_DEBUG=noconform $@
 
 EOF
 chmod +x ../usr/bin/prun
