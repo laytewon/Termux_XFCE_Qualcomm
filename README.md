@@ -6,7 +6,7 @@ Requirement is fresh debian proot-distro, fresh termux installation is also pref
 
 Install with :
 ```
-curl -sL https://raw.githubusercontent.com/fredgrub/Termux_XFCE_Qualcomm/main/setup.sh -o setup.sh && chmod +x setup.sh && ./setup.sh
+curl -sL https://raw.githubusercontent.com/laytewon/Termux_XFCE_Qualcomm/main/setup.sh -o setup.sh && chmod +x setup.sh && ./setup.sh
 ```
 
 For more details, check other repositories.
